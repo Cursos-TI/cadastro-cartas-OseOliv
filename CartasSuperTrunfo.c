@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 int main() {
-    // Declarando variáveis para 32 cartas
     char estado;
     char codigo[4];
     char nome[20];
@@ -9,7 +8,6 @@ int main() {
     float area;
     float pib;
     int pontos_turisticos;
-    float densidade, pib_per_capita;
 
     printf("Cadastro de Cartas Super Trunfo - Países\n");
     printf("-------------------------------------\n");
@@ -24,24 +22,22 @@ int main() {
             sprintf(codigo, "%c%02d", estado, j);
             printf("Código: %s\n", codigo);
 
-            printf("Insira o nome da cidade: ");
+            printf("Nome da cidade: ");
             scanf("%s", nome);
 
-            printf("Insira a população: ");
+            printf("População: ");
             scanf("%d", &populacao);
 
-            printf("Insira a área (km²): ");
+            printf("Área (km²): ");
             scanf("%f", &area);
 
-            printf("Insira o PIB (em bilhões): ");
+            printf("PIB: ");
             scanf("%f", &pib);
 
-            printf("Insira a quantidade de pontos turísticos: ");
+            printf("Quantidade de pontos turísticos: ");
             scanf("%d", &pontos_turisticos);
 
-            densidade = populacao / area;
-            pib_per_capita = (pib * 1000000000) / populacao;
-
+            // Exibição dos Dados
             printf("\n******** Carta %s ********\n", codigo);
             printf("Estado: %c\n", estado);
             printf("Código: %s\n", codigo);
@@ -50,8 +46,6 @@ int main() {
             printf("Área: %.2f km²\n", area);
             printf("PIB: R$ %.2f bilhões\n", pib);
             printf("Pontos turísticos: %d\n", pontos_turisticos);
-            printf("Densidade populacional: %.2f hab/km²\n", densidade);
-            printf("PIB per capita: R$ %.2f\n", pib_per_capita);
             printf("***************************\n");
         }
     }
