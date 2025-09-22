@@ -70,14 +70,17 @@ int main()
   pib_per_capita2 = (pib2 * 1000000000) / (float)populacao2;
   super_poder2 = (float)populacao2 + area2 + pib2 + (float)pontos_turisticos2 + pib_per_capita2 + (1.0f / densidade2);
 
-  // Comparação dos atributos
-  int v_populacao = (populacao1 > populacao2);
-  int v_area = (area1 > area2);
-  int v_pib = (pib1 > pib2);
-  int v_pontos = (pontos_turisticos1 > pontos_turisticos2);
-  int v_densidade = (densidade1 < densidade2);
-  int v_pib_per_capita = (pib_per_capita1 > pib_per_capita2);
-  int v_super_poder = (super_poder1 > super_poder2);
+  // Comparação do atributo escolhido: População
+  // Se populacao1 > populacao2, Carta 1 vence. Caso contrário, Carta 2 vence.
+  int carta_vencedora;
+  if (populacao1 > populacao2)
+  {
+    carta_vencedora = 1;
+  }
+  else
+  {
+    carta_vencedora = 2;
+  }
 
   // Exibição dos dados da Carta 2
   printf("\n******** Carta 02 ********\n");
@@ -91,16 +94,18 @@ int main()
   printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
   printf("PIB per Capita: %.2f reais\n", pib_per_capita2);
 
-  // Exibição dos resultados das comparações
-  printf("\nComparação de Cartas:\n");
-  printf("População: Carta %d venceu (%d)\n", v_populacao ? 1 : 2, v_populacao);
-  printf("Área: Carta %d venceu (%d)\n", v_area ? 1 : 2, v_area);
-  printf("PIB: Carta %d venceu (%d)\n", v_pib ? 1 : 2, v_pib);
-  printf("Pontos Turísticos: Carta %d venceu (%d)\n", v_pontos ? 1 : 2, v_pontos);
-  printf("Densidade Populacional: Carta %d venceu (%d)\n", v_densidade ? 1 : 2, v_densidade);
-  printf("PIB per Capita: Carta %d venceu (%d)\n", v_pib_per_capita ? 1 : 2, v_pib_per_capita);
-  printf("Super Poder: Carta %d venceu (%d)\n", v_super_poder ? 1 : 2, v_super_poder);
-
+  // Exibição do resultado da comparação
+  printf("\nComparação de cartas (Atributo: População):\n");
+  printf("Carta 1 - %s (%s): %lu\n", nome1, estado1, populacao1);
+  printf("Carta 2 - %s (%s): %lu\n", nome2, estado2, populacao2);
+  if (carta_vencedora == 1)
+  {
+    printf("\nResultado: Carta 1 (%s) venceu!\n", nome1);
+  }
+  else
+  {
+    printf("\nResultado: Carta 2 (%s) venceu!\n", nome2);
+  }
   printf("\n******** FIM ********\n");
 
   return 0;
